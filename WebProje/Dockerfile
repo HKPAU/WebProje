@@ -1,5 +1,5 @@
-FROM php:7.4-cli
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-EXPOSE 8000
-CMD [ "php", "-S" , "8000" , "./Odev1.php" ]
+FROM php:7.4.1-cli-alpine3.11 
+RUN mkdir -p /src/app 
+COPY index.php /src/app 
+EXPOSE 3000 
+CMD ["php", "-S", "0.0.0.0:3000", "-t", "/src/app"]
